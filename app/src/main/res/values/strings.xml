@@ -4,4 +4,6 @@
     <string name="label_main">Sensor</string>
     <string name="open">Open</string>
     <string name="close">Close</string>
+    <string name="label_accelerometer">Accelerometer</string>
+    <string name="label_orientation">Orientation</string>
 </resources>
