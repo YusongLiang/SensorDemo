@@ -1,4 +1,4 @@
-package com.felix.sensordemo.app;
+package com.felix.sensordemo.view;
 
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
@@ -12,6 +12,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.felix.sensordemo.R;
+import com.felix.sensordemo.app.BaseActivity;
 
 /**
  * @author Felix
