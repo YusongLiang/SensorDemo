@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">传感器演示</string>
+    <string name="item_name">item name</string>
+    <string name="label_main">Sensor 传感器</string>
+    <string name="open">打&#160;&#160;开</string>
+    <string name="close">关&#160;&#160;闭</string>
+</resources>
