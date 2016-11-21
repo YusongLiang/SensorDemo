@@ -14,19 +14,16 @@ import com.felix.sensordemo.app.BaseActivity;
 /**
  * @author Felix
  */
-public class AccelerometerActivity extends BaseActivity {
+public class GyroscopeActivity extends BaseActivity {
 
     private Toolbar toolbar;
     private SensorManager mManager;
-    private Sensor mAccelerometerSensor;
+    private Sensor mGyroscopeSensor;
     private SensorEventListener mSensorEventListener = new SensorEventListener() {
         @Override
         public void onSensorChanged(SensorEvent event) {
             switch (event.sensor.getType()) {
-                case Sensor.TYPE_ACCELEROMETER:
-                    float aX = event.values[0];
-                    float aY = event.values[1];
-                    float aZ = event.values[2];
+                case Sensor.TYPE_GYROSCOPE:
 
                     break;
             }
@@ -39,7 +36,7 @@ public class AccelerometerActivity extends BaseActivity {
 
     @Override
     protected int getLayoutResID() {
-        return R.layout.activity_accelerometer;
+        return R.layout.activity_gyroscope;
     }
 
     @Override
@@ -51,7 +48,7 @@ public class AccelerometerActivity extends BaseActivity {
     @Override
     protected void initData(Bundle savedInstanceState) {
         mManager = (SensorManager) getSystemService(SENSOR_SERVICE);
-        mAccelerometerSensor = mManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
+        mGyroscopeSensor = mManager.getDefaultSensor(Sensor.TYPE_GYROSCOPE);
     }
 
     @Override
@@ -68,14 +65,14 @@ public class AccelerometerActivity extends BaseActivity {
      * 注册传感器监听器
      */
     private void registerListener() {
-        mManager.registerListener(mSensorEventListener, mAccelerometerSensor, SensorManager.SENSOR_DELAY_UI);
+        mManager.registerListener(mSensorEventListener, mGyroscopeSensor, SensorManager.SENSOR_DELAY_UI);
     }
 
     /**
      * 注销传感器监听器
      */
     private void unregisterListener() {
-        mManager.unregisterListener(mSensorEventListener, mAccelerometerSensor);
+        mManager.unregisterListener(mSensorEventListener, mGyroscopeSensor);
     }
 
     @Override

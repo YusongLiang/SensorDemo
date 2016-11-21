@@ -6,4 +6,5 @@
     <string name="close">关&#160;&#160;闭</string>
     <string name="label_accelerometer">Accelerometer</string>
     <string name="label_orientation">Orientation</string>
+    <string name="label_gyroscope">Gyroscope</string>
 </resources>

@@ -17,6 +17,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".view.OrientationActivity" />
+        <activity android:name=".view.AccelerometerActivity" />
+        <activity android:name=".view.GyroscopeActivity" />
     </application>
 
 </manifest>

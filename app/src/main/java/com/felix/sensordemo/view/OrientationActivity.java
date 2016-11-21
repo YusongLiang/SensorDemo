@@ -24,10 +24,12 @@ public class OrientationActivity extends BaseActivity implements View.OnClickLis
     private ImageView ivCompass;
     private Button btOpenOrClose;
     private SensorManager mManager;
+
     /**
      * 加速度传感器
      */
     private Sensor mAccelerometerSensor;
+
     /**
      * 电磁场传感器
      */
@@ -156,6 +158,8 @@ public class OrientationActivity extends BaseActivity implements View.OnClickLis
         mManager.unregisterListener(mSensorEventListener, mMagneticFieldSensor);
         isRegister = false;
         btOpenOrClose.setText(R.string.open);
+        tvOriMsg.setText("");
+        ivCompass.setRotation(0);
     }
 
     @Override
