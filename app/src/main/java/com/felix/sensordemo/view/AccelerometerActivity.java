@@ -113,7 +113,7 @@ public class AccelerometerActivity extends BaseActivity {
     private void unregisterListener() {
         mManager.unregisterListener(mSensorEventListener, mAccelerometerSensor);
     }
-
+    
     @Override
     protected void onResume() {
         super.onResume();
