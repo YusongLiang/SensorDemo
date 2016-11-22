@@ -135,7 +135,7 @@ public class AccelerometerActivity extends BaseActivity {
     /**
      * 获取心形下落动画
      *
-     * @return 下落的{@link AnimationSet}对象
+     * @return 下落的 {@link AnimationSet} 动画
      */
     private AnimationSet getDropDownAnimation() {
         float x = (float) Math.random() - 0.1f;
