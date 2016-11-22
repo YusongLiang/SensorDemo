@@ -18,9 +18,15 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <activity android:name=".view.OrientationActivity" />
+
         <activity android:name=".view.AccelerometerActivity" />
+
         <activity android:name=".view.GyroscopeActivity" />
+
+        <activity android:name=".view.LightActivity" />
+
     </application>
 
 </manifest>

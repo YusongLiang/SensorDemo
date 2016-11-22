@@ -12,6 +12,7 @@ import android.widget.TextView;
 import com.felix.sensordemo.R;
 import com.felix.sensordemo.view.AccelerometerActivity;
 import com.felix.sensordemo.view.GyroscopeActivity;
+import com.felix.sensordemo.view.LightActivity;
 import com.felix.sensordemo.view.OrientationActivity;
 
 /**
@@ -20,9 +21,36 @@ import com.felix.sensordemo.view.OrientationActivity;
 public class DemoListAdapter extends RecyclerView.Adapter<DemoListAdapter.ViewHolder> {
 
     private Context mContext;
-    private final String[] mTitles = {"Orientation", "Accelerometer", "Gyroscope"};
-    private final Class[] mClasses = {OrientationActivity.class, AccelerometerActivity.class, GyroscopeActivity.class};
-    private final int[] mIconResIDs = {R.drawable.ic_orientation, R.drawable.ic_accelerometer, R.drawable.ic_gyroscope};
+
+    /**
+     * item标题数组
+     */
+    private final String[] mTitles = {
+            "Orientation",
+            "Accelerometer",
+            "Gyroscope",
+            "Light"
+    };
+
+    /**
+     * 跳转到的{@link Class}数组
+     */
+    private final Class[] mClasses = {
+            OrientationActivity.class,
+            AccelerometerActivity.class,
+            GyroscopeActivity.class,
+            LightActivity.class
+    };
+
+    /**
+     * 图标资源ID数组
+     */
+    private final int[] mIconResIDs = {
+            R.drawable.ic_orientation,
+            R.drawable.ic_accelerometer,
+            R.drawable.ic_gyroscope,
+            R.drawable.ic_light
+    };
 
     public DemoListAdapter(Context context) {
         mContext = context;

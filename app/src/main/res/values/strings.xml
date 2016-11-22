@@ -8,4 +8,5 @@
     <string name="label_orientation">Orientation</string>
     <string name="label_gyroscope">Gyroscope</string>
     <string name="shake">Shake</string>
+    <string name="label_light">Light</string>
 </resources>
