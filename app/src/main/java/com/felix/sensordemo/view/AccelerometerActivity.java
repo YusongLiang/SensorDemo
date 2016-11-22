@@ -12,6 +12,7 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationSet;
 import android.view.animation.CycleInterpolator;
 import android.view.animation.RotateAnimation;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.felix.sensordemo.R;
@@ -24,7 +25,7 @@ public class AccelerometerActivity extends BaseActivity {
 
     private static final int REPEAT_COUNT = 8;
     private Toolbar toolbar;
-    private TextView tvShake;
+    private RelativeLayout rlShake;
     private SensorManager mManager;
     private Sensor mAccelerometerSensor;
     private Vibrator mVibrator;
@@ -58,7 +59,7 @@ public class AccelerometerActivity extends BaseActivity {
     protected void initView() {
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        tvShake = (TextView) findViewById(R.id.tv_shake);
+        rlShake = (RelativeLayout) findViewById(R.id.rl_shake);
     }
 
     @Override
@@ -97,7 +98,7 @@ public class AccelerometerActivity extends BaseActivity {
         animation.setInterpolator(new CycleInterpolator(REPEAT_COUNT));
         animation.setDuration(duration / REPEAT_COUNT);
         set.addAnimation(animation);
-        tvShake.startAnimation(set);
+        rlShake.startAnimation(set);
     }
 
     /**
@@ -113,7 +114,7 @@ public class AccelerometerActivity extends BaseActivity {
     private void unregisterListener() {
         mManager.unregisterListener(mSensorEventListener, mAccelerometerSensor);
     }
-    
+
     @Override
     protected void onResume() {
         super.onResume();
