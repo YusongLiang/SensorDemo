@@ -5,18 +5,24 @@ import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 import android.os.Bundle;
+import android.os.Handler;
 import android.os.Vibrator;
+import android.support.constraint.ConstraintLayout;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
+import android.view.animation.AccelerateInterpolator;
 import android.view.animation.Animation;
 import android.view.animation.AnimationSet;
 import android.view.animation.CycleInterpolator;
 import android.view.animation.RotateAnimation;
+import android.view.animation.TranslateAnimation;
+import android.widget.ImageView;
 import android.widget.RelativeLayout;
-import android.widget.TextView;
 
 import com.felix.sensordemo.R;
 import com.felix.sensordemo.app.BaseActivity;
+import com.felix.sensordemo.util.Constants;
 
 /**
  * @author Felix
@@ -26,9 +32,11 @@ public class AccelerometerActivity extends BaseActivity {
     private static final int REPEAT_COUNT = 8;
     private Toolbar toolbar;
     private RelativeLayout rlShake;
+    private ConstraintLayout constraintLayout;
     private SensorManager mManager;
     private Sensor mAccelerometerSensor;
     private Vibrator mVibrator;
+    private Handler mHandler = new Handler();
     private SensorEventListener mSensorEventListener = new SensorEventListener() {
         @Override
         public void onSensorChanged(SensorEvent event) {
@@ -39,7 +47,7 @@ public class AccelerometerActivity extends BaseActivity {
                     float aZ = event.values[2];
                     double aTotal = Math.sqrt(aX * aX + aY * aY + aZ * aZ);
                     if (Math.abs(aTotal) > 25) {
-                        onShack(aTotal);
+                        onShake(aTotal);
                     }
                     break;
             }
@@ -60,6 +68,7 @@ public class AccelerometerActivity extends BaseActivity {
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         rlShake = (RelativeLayout) findViewById(R.id.rl_shake);
+        constraintLayout = (ConstraintLayout) findViewById(R.id.constraint_layout);
     }
 
     @Override
@@ -84,7 +93,8 @@ public class AccelerometerActivity extends BaseActivity {
      *
      * @param acceleration 总加速度
      */
-    private void onShack(double acceleration) {
+    private void onShake(double acceleration) {
+        Log.d(Constants.APP_TAG, "on shake");
         int duration = (int) (acceleration * 10);
         mVibrator.vibrate(duration);
         AnimationSet set = new AnimationSet(true);
@@ -99,6 +109,49 @@ public class AccelerometerActivity extends BaseActivity {
         animation.setDuration(duration / REPEAT_COUNT);
         set.addAnimation(animation);
         rlShake.startAnimation(set);
+        dropDownHearts();
+    }
+
+    /**
+     * 心形下落
+     */
+    private void dropDownHearts() {
+        for (int i = 0; i < 5; i++) {
+            final ImageView imgView = new ImageView(this);
+            if (Math.random() > 0.5)
+                imgView.setImageResource(R.drawable.ic_shake_heart_small);
+            else imgView.setImageResource(R.drawable.ic_shake_heart_small2);
+            constraintLayout.addView(imgView);
+            imgView.startAnimation(getDropDownAnimation());
+            mHandler.postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    constraintLayout.removeView(imgView);
+                }
+            }, 1000);
+        }
+    }
+
+    /**
+     * 获取心形下落动画
+     *
+     * @return 下落的{@link AnimationSet}对象
+     */
+    private AnimationSet getDropDownAnimation() {
+        float x = (float) Math.random() - 0.1f;
+        float y = 1 + 5 * (float) Math.random();
+        final AnimationSet set = new AnimationSet(true);
+        TranslateAnimation translateAnimation = new TranslateAnimation(
+                Animation.RELATIVE_TO_PARENT, x,
+                Animation.RELATIVE_TO_PARENT, x,
+                Animation.RELATIVE_TO_PARENT, 0,
+                Animation.RELATIVE_TO_PARENT, y
+        );
+        set.setInterpolator(new AccelerateInterpolator());
+        set.setFillAfter(true);
+        set.setDuration(1000);
+        set.addAnimation(translateAnimation);
+        return set;
     }
 
     /**
