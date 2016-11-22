@@ -1,6 +1,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.felix.sensordemo">
 
+    <uses-permission android:name="android.permission.VIBRATE" />
+
     <application
         android:name=".app.SensorDemoApplication"
         android:allowBackup="true"
