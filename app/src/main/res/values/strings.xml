@@ -13,4 +13,9 @@
     <string name="author_email">lys74123@163.com</string>
     <string name="author">Felix Liang</string>
     <string name="transition_name">transition name</string>
+    <string name="sensor_vendor">Vendor</string>
+    <string name="sensor_maximum_range">Maximum Range</string>
+    <string name="sensor_power">Power</string>
+    <string name="sensor_resolution">Resolution</string>
+    <string name="label_sensor_detail">Sensor Detail</string>
 </resources>

@@ -5,6 +5,7 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.hardware.Sensor;
+import android.os.Bundle;
 import android.support.v4.app.ActivityOptionsCompat;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -58,6 +59,10 @@ public class SensorListAdapter extends RecyclerView.Adapter<SensorListAdapter.Vi
     private void createDialog(View v, Sensor sensor) {
         Intent intent = new Intent(mContext, SensorDetailActivity.class);
         intent.putExtra(Constants.SENSOR_NAME, sensor.getName());
+        intent.putExtra(Constants.SENSOR_VENDOR,sensor.getVendor());
+        intent.putExtra(Constants.SENSOR_MAXIMUM_RANGE,sensor.getMaximumRange());
+        intent.putExtra(Constants.SENSOR_POWER,sensor.getPower());
+        intent.putExtra(Constants.SENSOR_RESOLUTION,sensor.getResolution());
         ActivityOptionsCompat activityOptionsCompat = ActivityOptionsCompat.makeSceneTransitionAnimation((Activity) mContext,
                 v, mContext.getResources().getString(R.string.transition_name));
         mContext.startActivity(intent, activityOptionsCompat.toBundle());

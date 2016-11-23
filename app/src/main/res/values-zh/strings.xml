@@ -9,4 +9,9 @@
     <string name="label_gyroscope">Gyroscope</string>
     <string name="shake">摇一摇</string>
     <string name="label_light">Light</string>
+    <string name="sensor_vendor">供应商</string>
+    <string name="sensor_maximum_range">最大量程</string>
+    <string name="sensor_power">电量</string>
+    <string name="sensor_resolution">精度</string>
+    <string name="label_sensor_detail">Sensor Detail</string>
 </resources>
