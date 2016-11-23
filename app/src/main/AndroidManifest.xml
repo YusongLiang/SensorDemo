@@ -27,6 +27,10 @@
 
         <activity android:name=".view.LightActivity" />
 
+        <activity
+            android:name=".view.SensorDetailActivity"
+            android:theme="@style/AppTheme.Dialog" />
+
     </application>
 
 </manifest>

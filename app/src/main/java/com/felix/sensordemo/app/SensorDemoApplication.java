@@ -1,5 +1,6 @@
 package com.felix.sensordemo.app;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.Application;
 import android.content.Context;
@@ -15,7 +16,9 @@ import java.util.List;
  */
 public class SensorDemoApplication extends Application {
 
+    @SuppressLint("StaticFieldLeak")
     public static Context mContext;
+
     private static List<Activity> mActivities;
 
     @Override
@@ -56,15 +59,6 @@ public class SensorDemoApplication extends Application {
                 Log.d(Constants.APP_TAG, "destroy activity: " + target.getClass().getSimpleName());
                 break;
             }
-        }
-    }
-
-    /**
-     * 销毁该App所有现存的{@link Activity}对象
-     */
-    public static void removeAll() {
-        for (Activity activity : mActivities) {
-            activity.finish();
         }
     }
 }

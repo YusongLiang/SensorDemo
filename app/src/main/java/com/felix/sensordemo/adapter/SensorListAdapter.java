@@ -1,14 +1,22 @@
 package com.felix.sensordemo.adapter;
 
+import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.Intent;
 import android.hardware.Sensor;
+import android.support.v4.app.ActivityOptionsCompat;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
 import android.widget.TextView;
 
 import com.felix.sensordemo.R;
+import com.felix.sensordemo.util.Constants;
+import com.felix.sensordemo.view.SensorDetailActivity;
 
 import java.util.List;
 
@@ -32,8 +40,27 @@ public class SensorListAdapter extends RecyclerView.Adapter<SensorListAdapter.Vi
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-        Sensor sensor = mSensorList.get(position);
+        final Sensor sensor = mSensorList.get(position);
         holder.tvSensorName.setText(sensor.getName());
+        holder.tvSensorName.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                switch (event.getAction()) {
+                    case MotionEvent.ACTION_UP:
+                        createDialog(v, sensor);
+                        break;
+                }
+                return true;
+            }
+        });
+    }
+
+    private void createDialog(View v, Sensor sensor) {
+        Intent intent = new Intent(mContext, SensorDetailActivity.class);
+        intent.putExtra(Constants.SENSOR_NAME, sensor.getName());
+        ActivityOptionsCompat activityOptionsCompat = ActivityOptionsCompat.makeSceneTransitionAnimation((Activity) mContext,
+                v, mContext.getResources().getString(R.string.transition_name));
+        mContext.startActivity(intent, activityOptionsCompat.toBundle());
     }
 
     @Override
