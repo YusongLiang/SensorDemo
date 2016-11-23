@@ -9,4 +9,8 @@
     <string name="label_gyroscope">Gyroscope</string>
     <string name="shake">Shake</string>
     <string name="label_light">Light</string>
+    <string name="sensors_of_your_device">Sensors of Your Device</string>
+    <string name="author_email">lys74123@163.com</string>
+    <string name="author">Felix Liang</string>
+    <string name="transition_name">transition demo</string>
 </resources>

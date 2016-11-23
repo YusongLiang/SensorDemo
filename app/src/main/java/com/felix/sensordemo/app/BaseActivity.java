@@ -19,6 +19,7 @@ public abstract class BaseActivity extends AppCompatActivity {
         initListener();
     }
 
+
     protected abstract int getLayoutResID();
 
     protected void onBeforeSetContent() {

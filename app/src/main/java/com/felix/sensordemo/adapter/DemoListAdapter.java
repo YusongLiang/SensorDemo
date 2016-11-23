@@ -1,15 +1,24 @@
 package com.felix.sensordemo.adapter;
 
+import android.animation.Animator;
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.app.ActivityOptionsCompat;
+import android.support.v4.util.Pair;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
+import android.view.ViewAnimationUtils;
 import android.view.ViewGroup;
+import android.view.animation.AccelerateInterpolator;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.felix.sensordemo.R;
+import com.felix.sensordemo.util.Constants;
 import com.felix.sensordemo.view.AccelerometerActivity;
 import com.felix.sensordemo.view.GyroscopeActivity;
 import com.felix.sensordemo.view.LightActivity;
@@ -65,10 +74,18 @@ public class DemoListAdapter extends RecyclerView.Adapter<DemoListAdapter.ViewHo
     public void onBindViewHolder(final DemoListAdapter.ViewHolder holder, int position) {
         holder.tvItemName.setText(mTitles[holder.getAdapterPosition()]);
         holder.ivItemIcon.setImageResource(mIconResIDs[holder.getAdapterPosition()]);
-        holder.itemView.setOnClickListener(new View.OnClickListener() {
+        holder.itemView.setOnTouchListener(new View.OnTouchListener() {
             @Override
-            public void onClick(View v) {
-                mContext.startActivity(new Intent(mContext, mClasses[holder.getAdapterPosition()]));
+            public boolean onTouch(View v, MotionEvent event) {
+                switch (event.getAction()) {
+                    case MotionEvent.ACTION_UP:
+                        Intent intent = new Intent(mContext, mClasses[holder.getAdapterPosition()]);
+                        ActivityOptionsCompat activityOptionsCompat = ActivityOptionsCompat.makeSceneTransitionAnimation((Activity) mContext,
+                                v, mContext.getResources().getString(R.string.transition_name));
+                        mContext.startActivity(intent, activityOptionsCompat.toBundle());
+                        break;
+                }
+                return true;
             }
         });
     }
