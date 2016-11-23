@@ -14,4 +14,5 @@
     <string name="sensor_power">电量</string>
     <string name="sensor_resolution">精度</string>
     <string name="label_sensor_detail">Sensor Detail</string>
+    <string name="label_pressure">Pressure</string>
 </resources>

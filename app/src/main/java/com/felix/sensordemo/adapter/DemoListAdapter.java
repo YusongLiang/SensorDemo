@@ -1,35 +1,28 @@
 package com.felix.sensordemo.adapter;
 
-import android.animation.Animator;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
-import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.ActivityOptionsCompat;
-import android.support.v4.util.Pair;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
-import android.view.ViewAnimationUtils;
 import android.view.ViewGroup;
-import android.view.animation.AccelerateInterpolator;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.felix.sensordemo.R;
-import com.felix.sensordemo.util.Constants;
 import com.felix.sensordemo.view.AccelerometerActivity;
 import com.felix.sensordemo.view.GyroscopeActivity;
 import com.felix.sensordemo.view.LightActivity;
 import com.felix.sensordemo.view.OrientationActivity;
+import com.felix.sensordemo.view.PressureActivity;
 
 /**
  * @author Felix
  */
 public class DemoListAdapter extends RecyclerView.Adapter<DemoListAdapter.ViewHolder> {
-
-    private Context mContext;
 
     /**
      * item标题数组
@@ -38,7 +31,8 @@ public class DemoListAdapter extends RecyclerView.Adapter<DemoListAdapter.ViewHo
             "Orientation",
             "Accelerometer",
             "Gyroscope",
-            "Light"
+            "Light",
+            "Pressure"
     };
 
     /**
@@ -48,7 +42,8 @@ public class DemoListAdapter extends RecyclerView.Adapter<DemoListAdapter.ViewHo
             OrientationActivity.class,
             AccelerometerActivity.class,
             GyroscopeActivity.class,
-            LightActivity.class
+            LightActivity.class,
+            PressureActivity.class
     };
 
     /**
@@ -58,8 +53,11 @@ public class DemoListAdapter extends RecyclerView.Adapter<DemoListAdapter.ViewHo
             R.drawable.ic_orientation,
             R.drawable.ic_accelerometer,
             R.drawable.ic_gyroscope,
-            R.drawable.ic_light
+            R.drawable.ic_light,
+            R.drawable.ic_pressure
     };
+
+    private Context mContext;
 
     public DemoListAdapter(Context context) {
         mContext = context;

@@ -18,4 +18,5 @@
     <string name="sensor_power">Power</string>
     <string name="sensor_resolution">Resolution</string>
     <string name="label_sensor_detail">Sensor Detail</string>
+    <string name="label_pressure">Pressure</string>
 </resources>
