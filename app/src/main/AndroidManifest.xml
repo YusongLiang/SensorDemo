@@ -32,6 +32,8 @@
         <activity android:name=".view.PressureActivity" />
 
         <activity android:name=".view.ProximityActivity" />
+
+        <activity android:name=".view.TemperatureActivity" />
     </application>
 
 </manifest>

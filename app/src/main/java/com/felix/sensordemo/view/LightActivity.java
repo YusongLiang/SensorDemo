@@ -132,10 +132,16 @@ public class LightActivity extends BaseActivity {
         });
     }
 
+    /**
+     * 注册传感器监听器
+     */
     private void registerListener() {
         mManager.registerListener(mSensorEventListener, mLightSensor, SensorManager.SENSOR_DELAY_UI);
     }
 
+    /**
+     * 注销传感器监听器
+     */
     private void unregisterListener() {
         mManager.unregisterListener(mSensorEventListener, mLightSensor);
     }
