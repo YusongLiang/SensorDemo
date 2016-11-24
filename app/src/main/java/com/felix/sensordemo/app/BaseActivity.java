@@ -1,8 +1,11 @@
 package com.felix.sensordemo.app;
 
+import android.app.AlertDialog;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+
+import com.felix.sensordemo.R;
 
 /**
  * @author Felix
