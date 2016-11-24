@@ -34,7 +34,7 @@ public class GyroscopeActivity extends BaseActivity {
     private SensorManager mManager;
     private Sensor mGyroscopeSensor;
     private float MAX_ANGULAR_SPEED = 2;
-    private float MAX_ANGULAR_SPEED_X = 8;
+    private float MAX_ANGULAR_SPEED_X = 6;
     private SoundPool mSoundPool;
     private SensorEventListener mSensorEventListener = new SensorEventListener() {
         @Override

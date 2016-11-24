@@ -5,6 +5,7 @@ import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 import android.os.Bundle;
+import android.support.design.widget.Snackbar;
 import android.support.v4.app.ActivityCompat;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
@@ -25,7 +26,8 @@ public class TemperatureActivity extends BaseActivity {
         public void onSensorChanged(SensorEvent event) {
             switch (event.sensor.getType()) {
                 case Sensor.TYPE_AMBIENT_TEMPERATURE:
-
+                    float degree = event.values[0];
+                    onReceiveTemperature(degree);
                     break;
             }
         }
@@ -34,6 +36,15 @@ public class TemperatureActivity extends BaseActivity {
         public void onAccuracyChanged(Sensor sensor, int accuracy) {
         }
     };
+
+    /**
+     * 接收到温度数据时执行
+     *
+     * @param degree 当前环境温度（摄氏度）
+     */
+    private void onReceiveTemperature(float degree) {
+
+    }
 
     @Override
     protected int getLayoutResID() {
