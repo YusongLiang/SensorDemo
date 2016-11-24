@@ -18,6 +18,7 @@ import com.felix.sensordemo.view.GyroscopeActivity;
 import com.felix.sensordemo.view.LightActivity;
 import com.felix.sensordemo.view.OrientationActivity;
 import com.felix.sensordemo.view.PressureActivity;
+import com.felix.sensordemo.view.ProximityActivity;
 
 /**
  * @author Felix
@@ -32,7 +33,8 @@ public class DemoListAdapter extends RecyclerView.Adapter<DemoListAdapter.ViewHo
             "Accelerometer",
             "Gyroscope",
             "Light",
-            "Pressure"
+            "Pressure",
+            "Proximity"
     };
 
     /**
@@ -43,7 +45,8 @@ public class DemoListAdapter extends RecyclerView.Adapter<DemoListAdapter.ViewHo
             AccelerometerActivity.class,
             GyroscopeActivity.class,
             LightActivity.class,
-            PressureActivity.class
+            PressureActivity.class,
+            ProximityActivity.class
     };
 
     /**
@@ -54,7 +57,8 @@ public class DemoListAdapter extends RecyclerView.Adapter<DemoListAdapter.ViewHo
             R.drawable.ic_accelerometer,
             R.drawable.ic_gyroscope,
             R.drawable.ic_light,
-            R.drawable.ic_pressure
+            R.drawable.ic_pressure,
+            R.drawable.ic_proximity
     };
 
     private Context mContext;

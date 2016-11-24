@@ -30,6 +30,8 @@
         <activity android:name=".view.SensorDetailActivity" />
 
         <activity android:name=".view.PressureActivity" />
+
+        <activity android:name=".view.ProximityActivity" />
     </application>
 
 </manifest>
