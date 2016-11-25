@@ -26,14 +26,21 @@ import com.felix.sensordemo.app.BaseActivity;
 import com.felix.sensordemo.util.Constants;
 
 /**
+ * 加速度传感器使用演示
+ *
  * @author Felix
  */
 public class AccelerometerActivity extends BaseActivity {
 
+    /**
+     * 中间心形摇摆次数
+     */
     private static final int REPEAT_COUNT = 8;
+
     private Toolbar toolbar;
     private RelativeLayout rlShake;
     private ConstraintLayout constraintLayout;
+
     private SensorManager mManager;
     private Sensor mAccelerometerSensor;
     private Vibrator mVibrator;

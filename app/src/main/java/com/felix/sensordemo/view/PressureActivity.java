@@ -16,12 +16,15 @@ import com.felix.sensordemo.app.BaseActivity;
 import com.felix.sensordemo.util.Constants;
 
 /**
+ * 大气压力传感器使用演示
+ *
  * @author Felix
  */
 public class PressureActivity extends BaseActivity {
 
     private Toolbar toolbar;
     private TextView tvPressureMsg;
+
     private SensorManager mManager;
     private Sensor mPressureSensor;
     private SensorEventListener mSensorEventListener = new SensorEventListener() {

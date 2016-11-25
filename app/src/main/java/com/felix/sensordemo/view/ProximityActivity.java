@@ -24,6 +24,8 @@ import com.felix.sensordemo.app.BaseActivity;
 import com.felix.sensordemo.util.Constants;
 
 /**
+ * 距离传感器使用演示
+ *
  * @author Felix
  */
 public class ProximityActivity extends BaseActivity {
@@ -32,10 +34,12 @@ public class ProximityActivity extends BaseActivity {
      * 扑克牌旋转用时
      */
     private static final long ROTATE_DURATION = 350;
+
     private Toolbar toolbar;
     private RelativeLayout rlPoker;
     private ImageView ivPokerBg;
     private ImageView ivPokerFg;
+
     private AnimatorSet mAnimatorSet;
     private SensorManager mManager;
     private Sensor mProximitySensor;

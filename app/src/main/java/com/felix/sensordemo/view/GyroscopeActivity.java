@@ -24,17 +24,28 @@ import com.felix.sensordemo.app.BaseActivity;
 import com.felix.sensordemo.util.Constants;
 
 /**
+ * 陀螺仪传感器使用演示
+ *
  * @author Felix
  */
 public class GyroscopeActivity extends BaseActivity {
 
+    /**
+     * Z轴最大角速度
+     */
+    private static final float MAX_ANGULAR_SPEED_Z = 2;
+
+    /**
+     * X轴最大角速度
+     */
+    private static final float MAX_ANGULAR_SPEED_X = 6;
+
     private Toolbar toolbar;
     private ImageView ivEyeRight;
     private ImageView ivEyeLeft;
+
     private SensorManager mManager;
     private Sensor mGyroscopeSensor;
-    private float MAX_ANGULAR_SPEED = 2;
-    private float MAX_ANGULAR_SPEED_X = 6;
     private SoundPool mSoundPool;
     private SensorEventListener mSensorEventListener = new SensorEventListener() {
         @Override
@@ -44,7 +55,7 @@ public class GyroscopeActivity extends BaseActivity {
                     float axisX = event.values[0];
                     float axisY = event.values[1];
                     float axisZ = event.values[2];
-                    if (Math.abs(axisZ) > MAX_ANGULAR_SPEED) {
+                    if (Math.abs(axisZ) > MAX_ANGULAR_SPEED_Z) {
                         onAxisZRotate(axisZ);
                     }
                     if (Math.abs(axisX) > MAX_ANGULAR_SPEED_X) {
@@ -139,7 +150,7 @@ public class GyroscopeActivity extends BaseActivity {
         AnimationSet set = new AnimationSet(true);
         int from;
         int to;
-        if (angularSpeed > MAX_ANGULAR_SPEED) {
+        if (angularSpeed > MAX_ANGULAR_SPEED_Z) {
             from = 360;
             to = 0;
         } else {

@@ -5,7 +5,6 @@ import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 import android.os.Bundle;
-import android.support.design.widget.Snackbar;
 import android.support.v4.app.ActivityCompat;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
@@ -14,11 +13,14 @@ import com.felix.sensordemo.R;
 import com.felix.sensordemo.app.BaseActivity;
 
 /**
+ * 环境温度传感器使用演示
+ *
  * @author Felix
  */
 public class TemperatureActivity extends BaseActivity {
 
     private Toolbar toolbar;
+
     private SensorManager mManager;
     private Sensor mAmbientTemperatureSensor;
     private SensorEventListener mSensorEventListener = new SensorEventListener() {

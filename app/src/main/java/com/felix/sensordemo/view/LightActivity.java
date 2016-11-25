@@ -18,27 +18,32 @@ import com.felix.sensordemo.app.BaseActivity;
 import com.felix.sensordemo.util.Constants;
 
 /**
+ * 光传感器使用演示
+ *
  * @author Felix
  */
 public class LightActivity extends BaseActivity {
 
+    /**
+     * 暗光的最大光照强度（lux）
+     */
     private static final float MAX_LIGHT = 10;
+
     private Toolbar toolbar;
-    private TextView tvUp;
-    private TextView tvDown;
+    private TextView tvCoverUp;
+    private TextView tvCoverDown;
     private TextView tvLightMsg;
-    private SensorManager mManager;
-    private Sensor mLightSensor;
 
     /**
      * 是否正在执行动画
      */
     private boolean isAnimating;
-
     /**
      * 先前是否为暗光
      */
     private boolean lastIsDark;
+    private SensorManager mManager;
+    private Sensor mLightSensor;
     private SensorEventListener mSensorEventListener = new SensorEventListener() {
         @Override
         public void onSensorChanged(SensorEvent event) {
@@ -94,10 +99,10 @@ public class LightActivity extends BaseActivity {
             from = 100;
             to = 0;
         }
-        ObjectAnimator animatorUp = ObjectAnimator.ofFloat(tvUp, "translationY", from, to);
+        ObjectAnimator animatorUp = ObjectAnimator.ofFloat(tvCoverUp, "translationY", from, to);
         animatorUp.setDuration(900);
         animatorUp.start();
-        ObjectAnimator animatorDown = ObjectAnimator.ofFloat(tvDown, "translationY", -from, -to);
+        ObjectAnimator animatorDown = ObjectAnimator.ofFloat(tvCoverDown, "translationY", -from, -to);
         animatorDown.setDuration(900);
         animatorDown.start();
     }
@@ -111,8 +116,8 @@ public class LightActivity extends BaseActivity {
     protected void initView() {
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        tvUp = (TextView) findViewById(R.id.tv_up);
-        tvDown = (TextView) findViewById(R.id.tv_down);
+        tvCoverUp = (TextView) findViewById(R.id.tv_up);
+        tvCoverDown = (TextView) findViewById(R.id.tv_down);
         tvLightMsg = (TextView) findViewById(R.id.tv_light_msg);
     }
 
