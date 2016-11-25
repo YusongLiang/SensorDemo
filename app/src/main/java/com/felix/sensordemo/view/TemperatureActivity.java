@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.support.v4.app.ActivityCompat;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.widget.ProgressBar;
 
 import com.felix.sensordemo.R;
 import com.felix.sensordemo.app.BaseActivity;
@@ -20,6 +21,7 @@ import com.felix.sensordemo.app.BaseActivity;
 public class TemperatureActivity extends BaseActivity {
 
     private Toolbar toolbar;
+    private ProgressBar pbTemperature;
 
     private SensorManager mManager;
     private Sensor mAmbientTemperatureSensor;
@@ -45,7 +47,7 @@ public class TemperatureActivity extends BaseActivity {
      * @param degree 当前环境温度（摄氏度）
      */
     private void onReceiveTemperature(float degree) {
-
+        pbTemperature.setProgress((int) (degree - 60));
     }
 
     @Override
@@ -57,6 +59,7 @@ public class TemperatureActivity extends BaseActivity {
     protected void initView() {
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        pbTemperature = (ProgressBar) findViewById(R.id.pb_temperature);
     }
 
     @Override
@@ -73,6 +76,7 @@ public class TemperatureActivity extends BaseActivity {
                 ActivityCompat.finishAfterTransition(TemperatureActivity.this);
             }
         });
+
     }
 
     /**

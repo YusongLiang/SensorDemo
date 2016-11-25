@@ -17,12 +17,13 @@ import com.felix.sensordemo.app.BaseActivity;
 
 /**
  * 传感器获取方向演示
- * <p>通过{@link Sensor#TYPE_ORIENTATION} 的方式获取方向已经过时，转而使用{@link SensorManager#getOrientation(float[], float[])}
- *   <br>结合以下两个类型传感器进行使用
+ * <p>
+ * 通过{@link Sensor#TYPE_ORIENTATION} 的方式获取方向已经过时，转而使用{@link SensorManager#getOrientation(float[], float[])}
+ * <br>结合以下两个类型传感器进行使用
  * </p>
  * <ul>
- *   <li>{@link Sensor#TYPE_ACCELEROMETER}</li>
- *   <li>{@link Sensor#TYPE_MAGNETIC_FIELD}</li>
+ * <li>{@link Sensor#TYPE_ACCELEROMETER}</li>
+ * <li>{@link Sensor#TYPE_MAGNETIC_FIELD}</li>
  * </ul>
  *
  * @author Felix
